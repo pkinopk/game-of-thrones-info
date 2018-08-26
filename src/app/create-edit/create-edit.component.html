@@ -1,0 +1,86 @@
+<div class="list-group-item">
+  <h2 *ngIf="service.isNew">New Character</h2>
+  <h2 *ngIf="!service.isNew">Edit Character</h2>
+  <div class="row">
+    <div class="col">
+      <input type="text" placeholder="First Name" class="form-control" id="firstName" [(ngModel)]="service.formBinding.firstName">
+    </div>
+    <div class="col">
+      <input type="text" placeholder="Last name" class="form-control" id="lastName" [(ngModel)]="service.formBinding.lastName">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <input type="text" placeholder="Title(s) (Separated by comma)" class="form-control" id="title" [(ngModel)]="service.formBinding.title">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <select name="gender" class="form-control" id="gender" [(ngModel)]="service.formBinding.gender">
+        <option value="Gender" disabled selected hidden>Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+    <div class="col">
+      <input type="text" placeholder="Origin" class="form-control" id="origin" [(ngModel)]="service.formBinding.origin">
+    </div>
+    <div class="col">
+      <select name="family" class="form-control" id="family" [(ngModel)]="service.formBinding.family">
+        <option value="Family" disabled selected hidden>Family</option>
+        <option value="Arryn">Arryn</option>
+        <option value="Baratheon">Baratheon</option>
+        <option value="Bolton">Bolton</option>
+        <option value="Casterly">Casterly</option>
+        <option value="Durrandon">Durrandon</option>
+        <option value="Frey">Frey</option>
+        <option value="Gardener">Gardener</option>
+        <option value="Greyjoy">Greyjoy</option>
+        <option value="Hoare">Hoare</option>
+        <option value="Justman">Justman</option>
+        <option value="Lannister">Lannister</option>
+        <option value="Martell">Martell</option>
+        <option value="Mudd">Mudd</option>
+        <option value="Stark">Stark</option>
+        <option value="Targaryen">Targaryen</option>
+        <option value="Tully">Tully</option>
+        <option value="Tyrell">Tyrell</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <input type="text" placeholder="Picture Url" class="form-control" id="pictureURL" [(ngModel)]="service.formBinding.pictureURL">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <select name="status" class="form-control" id="status" [(ngModel)]="service.formBinding.status">
+        <option value="Status" disabled selected hidden>Status</option>
+        <option value="Alive">Alive</option>
+        <option value="Deceased">Deceased</option>
+      </select>
+    </div>
+    <div class="col">
+      <input type="number" min="1" placeholder="Age" class="form-control" id="age" [(ngModel)]="service.formBinding.age">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <input type="text" placeholder="Death" class="form-control" id="death" [(ngModel)]="service.formBinding.death">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-danger float-right" (click)="service.disableDisplayCharacter()">Cancel</button>
+      <button class="btn btn-success float-right" (click)="service.saveCharacter()" *ngIf="service.isNew">Save</button>
+      <button class="btn btn-success float-right" (click)="service.updateCharacter(service.selectedCharacter)" *ngIf="!service.isNew">Save</button>
+    </div>
+  </div>
+</div>

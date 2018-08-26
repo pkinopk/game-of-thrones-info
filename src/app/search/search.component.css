@@ -1,0 +1,11 @@
+input {
+  width: 100%;
+}
+
+button {
+  width: 100%;
+}
+
+.col-2 {
+  padding-left: 0;
+}

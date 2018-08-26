@@ -1,0 +1,41 @@
+<div class="list-group-item">
+  <h3 class="text-center">{{service.selectedCharacter.fullName}}</h3>
+  <hr>
+  <div class="row">
+    <div class="col-7">
+      <div *ngIf="service.selectedCharacter.title[0] !== ''">
+        <small>Title(s)</small>
+        <p *ngFor="let title of service.selectedCharacter.title">{{title}}</p>
+      </div>
+      <div>
+        <small>Gender</small>
+        <p>{{service.selectedCharacter.gender}}</p>
+      </div>
+      <div>
+        <small>Origin</small>
+        <p>{{service.selectedCharacter.origin}}</p>
+      </div>
+      <div>
+        <small>Status</small>
+        <p>{{service.selectedCharacter.status}}</p>
+      </div>
+      <div *ngIf="service.selectedCharacter.status == 'Alive'">
+        <small>Age</small>
+        <p>{{service.selectedCharacter.age}}</p>
+      </div>
+      <div *ngIf="service.selectedCharacter.status == 'Deceased'">
+        <small>Death</small>
+        <p>{{service.selectedCharacter.death}}</p>
+      </div>
+    </div>
+    <div class="col-5">
+      <img src="{{service.selectedCharacter.pictureURL}}" alt="" class="float-right">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-secondary float-right" (click)="service.disableDisplayCharacter()">Close</button>
+      <button class="btn btn-primary float-right" (click)="service.editCharacter(service.selectedCharacter)">Edit</button>
+    </div>
+  </div>
+</div>
