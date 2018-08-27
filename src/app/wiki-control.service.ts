@@ -15,6 +15,14 @@ export class WikiControlService {
   name: string;
   selectedCharacter: Character;
   isNew = true;
+  formCheck = {
+    fName: false,
+    gender: false,
+    origin: false,
+    family: false,
+    pictureURL: false,
+    death: false
+  };
   formBinding: Character = new Character(
     '',
     '',
@@ -124,44 +132,53 @@ export class WikiControlService {
   }
 
   saveCharacter() {
+    this.clearFormValidation();
     const character = this.createCharacter();
-    this.http
-      .post(
-        'https://game-of-thrones-server.herokuapp.com/addcharacter',
-        character
-      )
-      .toPromise()
-      .catch(reason => {
-        console.log('recipe failed', reason);
-      })
-      .then((response: any) => {
-        console.log('response', response);
-        this.onStart();
-      });
-    this.showEdit = !this.showEdit;
-    this.displayInfo(character);
+
+    if (!this.formValidation(character)) {
+      this.http
+        .post(
+          'https://game-of-thrones-server.herokuapp.com/addcharacter',
+          character
+        )
+        .toPromise()
+        .catch(reason => {
+          console.log('recipe failed', reason);
+        })
+        .then((response: any) => {
+          console.log('response', response);
+          this.onStart();
+        });
+      this.showEdit = !this.showEdit;
+      this.displayInfo(character);
+    }
   }
 
   updateCharacter() {
+    this.clearFormValidation();
     const character = this.createCharacter();
 
     const id = this.charactersList.findIndex(function(element) {
       return character.fullName === element.fullName;
     });
 
-    this.http
-      .put(
-        'https://game-of-thrones-server.herokuapp.com/updatecharacter/' + id,
-        character
-      )
-      .toPromise()
-      .catch(reason => {
-        console.log('update failed', reason);
-      })
-      .then((response: any) => {
-        console.log('response', response);
-        this.onStart();
-      });
+    if (!this.formValidation(character)) {
+      this.http
+        .put(
+          'https://game-of-thrones-server.herokuapp.com/updatecharacter/' + id,
+          character
+        )
+        .toPromise()
+        .catch(reason => {
+          console.log('update failed', reason);
+        })
+        .then((response: any) => {
+          console.log('response', response);
+          this.onStart();
+        });
+      this.showEdit = !this.showEdit;
+      this.displayInfo(character);
+    }
   }
 
   deleteCharacter(id) {
@@ -202,8 +219,44 @@ export class WikiControlService {
     );
     return character;
   }
+  formValidation(character) {
+    let needFix = false;
+    if (character.firstName === '') {
+      $('#fname').removeClass('hidden');
+      needFix = true;
+    }
+    if (character.gender === 'Gender') {
+      $('#gender').removeClass('hidden');
+      needFix = true;
+    }
+    if (character.origin === '') {
+      $('#origin').removeClass('hidden');
+      needFix = true;
+    }
+    if (character.family === 'Family') {
+      $('#family').removeClass('hidden');
+      needFix = true;
+    }
+    if (character.pictureURL === '') {
+      $('#pictureURL').removeClass('hidden');
+      needFix = true;
+    }
+    if (character.status === 'Status') {
+      $('#status').removeClass('hidden');
+      needFix = true;
+    }
+    if (character.status === 'Deceased' && character.death === '') {
+      $('#death').removeClass('hidden');
+      needFix = true;
+    }
+    return needFix;
+  }
+  clearFormValidation() {
+    $('small').addClass('hidden');
+  }
 }
 
+// Character class
 class Character {
   fullName;
   constructor(

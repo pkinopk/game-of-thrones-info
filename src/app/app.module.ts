@@ -9,7 +9,12 @@ import { DetailsComponent } from './details/details.component';
 import { CreateEditComponent } from './create-edit/create-edit.component';
 
 @NgModule({
-  declarations: [AppComponent, SearchComponent, DetailsComponent, CreateEditComponent],
+  declarations: [
+    AppComponent,
+    SearchComponent,
+    DetailsComponent,
+    CreateEditComponent
+  ],
   imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,10 +1,17 @@
 input,
 select {
   width: 100%;
-  margin-bottom: 0.5rem;
 }
 
 button {
   margin-top: 1rem;
   margin-right: 0.3rem;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+small {
+  color: #dc3545;
 }

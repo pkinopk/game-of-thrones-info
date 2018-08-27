@@ -3,21 +3,25 @@
   <h2 *ngIf="!service.isNew">Edit Character</h2>
   <div class="row">
     <div class="col">
-      <input type="text" placeholder="First Name" class="form-control" id="firstName" [(ngModel)]="service.formBinding.firstName">
+      <small class="hidden" id="fname">*Please provide a First Name</small>
+      <input required type="text" placeholder="First Name" class="form-control" id="firstName" [(ngModel)]="service.formBinding.firstName">
     </div>
     <div class="col">
+      <small class="hidden" id="lname">Please provide a Last Name</small>
       <input type="text" placeholder="Last name" class="form-control" id="lastName" [(ngModel)]="service.formBinding.lastName">
     </div>
   </div>
 
   <div class="row">
     <div class="col">
+      <small class="hidden" id="title">Title</small>
       <input type="text" placeholder="Title(s) (Separated by comma)" class="form-control" id="title" [(ngModel)]="service.formBinding.title">
     </div>
   </div>
 
   <div class="row">
     <div class="col">
+      <small class="hidden" id="gender">*Please select a Gender</small>
       <select name="gender" class="form-control" id="gender" [(ngModel)]="service.formBinding.gender">
         <option value="Gender" disabled selected hidden>Gender</option>
         <option value="Male">Male</option>
@@ -25,9 +29,11 @@
       </select>
     </div>
     <div class="col">
+      <small class="hidden" id="origin">*Please input a Origin</small>
       <input type="text" placeholder="Origin" class="form-control" id="origin" [(ngModel)]="service.formBinding.origin">
     </div>
     <div class="col">
+      <small class="hidden" id="family">*Please select a Family</small>
       <select name="family" class="form-control" id="family" [(ngModel)]="service.formBinding.family">
         <option value="Family" disabled selected hidden>Family</option>
         <option value="Arryn">Arryn</option>
@@ -54,11 +60,13 @@
 
   <div class="row">
     <div class="col">
+      <small class="hidden" id="pictureURL">*Please enter a Picture URL</small>
       <input type="text" placeholder="Picture Url" class="form-control" id="pictureURL" [(ngModel)]="service.formBinding.pictureURL">
     </div>
   </div>
   <div class="row">
     <div class="col">
+      <small class="hidden" id="status">*Please select a Status</small>
       <select name="status" class="form-control" id="status" [(ngModel)]="service.formBinding.status">
         <option value="Status" disabled selected hidden>Status</option>
         <option value="Alive">Alive</option>
@@ -66,12 +74,14 @@
       </select>
     </div>
     <div class="col">
+      <small class="hidden" id="age">Age</small>
       <input type="number" min="1" placeholder="Age" class="form-control" id="age" [(ngModel)]="service.formBinding.age">
     </div>
   </div>
 
   <div class="row">
     <div class="col">
+      <small class="hidden" id="death">*Please input the character Death</small>
       <input type="text" placeholder="Death" class="form-control" id="death" [(ngModel)]="service.formBinding.death">
     </div>
   </div>
