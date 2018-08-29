@@ -7,13 +7,15 @@ import { SearchComponent } from './search/search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './details/details.component';
 import { CreateEditComponent } from './create-edit/create-edit.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     DetailsComponent,
-    CreateEditComponent
+    CreateEditComponent,
+    FooterComponent
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],

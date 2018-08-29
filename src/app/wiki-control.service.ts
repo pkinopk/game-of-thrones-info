@@ -56,9 +56,22 @@ export class WikiControlService {
   }
 
   onStart() {
+    // function compare(a, b) {
+    //   if (a.firstName < b.firstName) {
+    //     return -1;
+    //   }
+    //   if (a.firstName > b.firstName) {
+    //     return 1;
+    //   }
+    //   return 0;
+    // }
+
     this.getCharactersList()
       .then((response: any) => {
         this.charactersList = response.body;
+
+        // console.log(this.charactersList.sort(compare));
+
         return response.body;
       })
       .catch(() => {});

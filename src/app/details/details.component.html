@@ -19,7 +19,7 @@
         <small>Status</small>
         <p>{{service.selectedCharacter.status}}</p>
       </div>
-      <div *ngIf="service.selectedCharacter.status == 'Alive'">
+      <div *ngIf="service.selectedCharacter.status == 'Alive' && service.selectedCharacter.age">
         <small>Age</small>
         <p>{{service.selectedCharacter.age}}</p>
       </div>
