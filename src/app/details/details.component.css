@@ -1,13 +1,33 @@
 p {
   padding-left: 0.5rem;
   margin-bottom: 0rem;
+  /* color: #909090; */
 }
 
 img {
   width: 100%;
+  border-radius: 5px;
 }
 
 button {
   margin-top: 1rem;
   margin-right: 0.3rem;
+}
+
+.list-group-item {
+  background-color: #10181c;
+}
+
+small {
+  color: #909090;
+}
+
+h2,
+p {
+  color: white;
+}
+
+@font-face {
+  font-family: 'gameOfThrones';
+  src: url('../../assets/fonts/GameOfThrones.ttf');
 }

@@ -9,3 +9,9 @@ h1 {
   font-family: 'gameOfThrones';
   src: url('../assets/fonts/GameOfThrones.ttf');
 }
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 15pt;
+  }
+}
