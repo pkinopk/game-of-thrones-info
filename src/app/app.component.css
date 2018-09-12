@@ -1,5 +1,11 @@
 h1 {
-  color: #cec1a9;
+  color: #a68232;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  font-family: gameOfThrones;
+}
+
+@font-face {
+  font-family: 'gameOfThrones';
+  src: url('../assets/fonts/GameOfThrones.ttf');
 }
