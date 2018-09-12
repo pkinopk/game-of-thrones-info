@@ -1,7 +1,6 @@
 p {
   padding-left: 0.5rem;
   margin-bottom: 0rem;
-  /* color: #909090; */
 }
 
 img {
@@ -15,7 +14,7 @@ button {
 }
 
 .list-group-item {
-  background-color: #10181c;
+  background-color: #10181cd6;
 }
 
 small {
@@ -30,4 +29,16 @@ p {
 @font-face {
   font-family: 'gameOfThrones';
   src: url('../../assets/fonts/GameOfThrones.ttf');
+}
+
+@media only screen and (max-width: 768px) {
+  h2 {
+    font-size: 17pt;
+  }
+  p {
+    font-size: 10pt;
+  }
+  small {
+    font-size: 8pt;
+  }
 }
