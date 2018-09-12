@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-  background: #181b22cc url(./assets/img/background.jpg) center fixed;
+  background: #0e0e17 url(./assets/img/background.jpg) center fixed;
   background-size: cover;
   min-height: 100vh;
 }
