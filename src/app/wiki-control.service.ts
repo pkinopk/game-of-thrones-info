@@ -8,6 +8,7 @@ import { HttpClient, HttpRequest } from '@angular/common/http';
 export class WikiControlService {
   constructor(private http: HttpClient) {}
 
+  baseURL = 'https://pkinopk-server.herokuapp.com/got-wiki';
   charactersList = [];
   showSearchList = true;
   showDetails = false;
@@ -38,12 +39,7 @@ export class WikiControlService {
 
   getCharactersList(): Promise<any> {
     const request = this.http
-      .request(
-        new HttpRequest(
-          'GET',
-          'https://game-of-thrones-server.herokuapp.com/characterlist'
-        )
-      )
+      .request(new HttpRequest('GET', this.baseURL + '/characterlist/'))
       .toPromise()
       .catch(reason => {
         return reason;
@@ -137,10 +133,7 @@ export class WikiControlService {
 
     if (!this.formValidation(character)) {
       this.http
-        .post(
-          'https://game-of-thrones-server.herokuapp.com/addcharacter',
-          character
-        )
+        .post(this.baseURL + '/addcharacter', character)
         .toPromise()
         .catch(reason => {
           console.log('recipe failed', reason);
@@ -164,10 +157,7 @@ export class WikiControlService {
 
     if (!this.formValidation(character)) {
       this.http
-        .put(
-          'https://game-of-thrones-server.herokuapp.com/updatecharacter/' + id,
-          character
-        )
+        .put(this.baseURL + '/updatecharacter/' + id, character)
         .toPromise()
         .catch(reason => {
           console.log('update failed', reason);
@@ -184,7 +174,7 @@ export class WikiControlService {
   deleteCharacter(id) {
     console.log(id);
     this.http
-      .delete('https://game-of-thrones-server.herokuapp.com/deleterecipe/' + id)
+      .delete(this.baseURL + '/deleterecipe/' + id)
       .toPromise()
       .catch(reason => {
         console.log('recipe failed', reason);
