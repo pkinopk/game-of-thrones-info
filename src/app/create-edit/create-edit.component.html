@@ -75,14 +75,16 @@
     </div>
     <div class="col-sm-12 col-md-6">
       <small class="hidden" id="age">Age</small>
-      <input type="number" min="1" placeholder="Age" class="form-control" id="age" [(ngModel)]="service.formBinding.age">
+      <input type="number" min="1" placeholder="Age (if alive)" class="form-control" id="age" [(ngModel)]="service.formBinding.age"
+        [disabled]="service.formBinding.status==='Deceased'">
     </div>
   </div>
 
   <div class="row">
     <div class="col">
       <small class="hidden" id="death">*Please input the character Death</small>
-      <input type="text" placeholder="Death" class="form-control" id="death" [(ngModel)]="service.formBinding.death">
+      <input type="text" placeholder="Death cause (if deceased)" class="form-control" id="death" [(ngModel)]="service.formBinding.death"
+        [disabled]="service.formBinding.status==='Alive'">
     </div>
   </div>
 
