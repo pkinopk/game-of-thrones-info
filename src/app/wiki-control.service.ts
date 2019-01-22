@@ -13,7 +13,7 @@ export class WikiControlService {
   showSearchList = true;
   showDetails = false;
   showEdit = false;
-  name: string;
+  userInput: string;
   selectedCharacter: Character;
   isNew = true;
   formCheck = {
@@ -61,14 +61,14 @@ export class WikiControlService {
   }
 
   displayInfo(character) {
-    this.name = '';
+    this.userInput = '';
     this.showSearchList = false;
     this.showDetails = true;
     this.selectedCharacter = character;
   }
 
   disableDisplayCharacter() {
-    this.name = '';
+    this.userInput = '';
     this.showSearchList = true;
     this.showDetails = false;
     this.selectedCharacter = null;
@@ -76,10 +76,10 @@ export class WikiControlService {
     this.clearForm();
   }
 
-  findCharacter(char) {
-    if (char) {
-      if (this.name) {
-        const n = char.toLowerCase().search(this.name.toLowerCase());
+  findCharacter(charName) {
+    if (charName) {
+      if (this.userInput) {
+        const n = charName.toLowerCase().search(this.userInput.toLowerCase());
         return n !== -1 ? 1 : 0;
       } else {
         return 0;

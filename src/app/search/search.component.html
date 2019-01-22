@@ -1,7 +1,7 @@
 <div>
   <div class="row">
     <div class="col-9">
-      <input class="form-control" type="text" [(ngModel)]="service.name" (change)="service.findCharacter()" placeholder="Search Character name"
+      <input class="form-control" type="text" [(ngModel)]="service.userInput" (change)="service.findCharacter()" placeholder="Search Character name"
         *ngIf="service.showSearchList">
       <div>
         <div class="list-group" *ngFor="let x of service.charactersList">
